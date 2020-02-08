@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>World Holiday Calendar</title>
+  <link rel="stylesheet" href="Holiday-Calendar/style.css">
+</head>
+
+<body>
+  <h1>
+    World Holiday Calendar
+  </h1>
+  <h2>Select any country from the dropdown menu to see its holidays!</h2>
+  <div class="navbar">
+    <div class="dropdown">
+    <button class="dropbtn" onclick="myFunction()">Click to select country
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      <a href="#">Australia</a>
+      <a href="#">China</a>
+      <a href="#">France</a>
+      <a href="#">Japan</a>
+      <a href="#">Norway</a>
+      <a href="#">Peru</a>
+      <a href="#">South Korea</a>
+      <a href="#">Ukraine</a>
+      <a href="#">U.K.</a>
+      <a href="#">U.S.A.</a>
+
+
+    </div>
+  </div>
+
+  <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (e) {
+      if (!e.target.matches('.dropbtn')) {
+        var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>
