@@ -49,7 +49,7 @@
     var countryList = [
       {
         name: "Australia",
-        code: "au"
+        code: "au"        
       },
       {
         name: "China",
@@ -97,34 +97,39 @@
       select.appendChild(el);
     }
 
+    
+
     $("#selectCountry").on("change", function () {
       console.log("whatever");
+      // document.getElementById("selectCountry").style.backgroundColor="green";
+      // document.getElementById("selectCountry").style.color="white";  
+      // document.getElementById("selectCountry").style.fontSize="large";
+        
+      
       var option = $(this).val();
 
-      var queryURL = "https://calendarific.com/api/v2/holidays?api_key=567ba202f6afebf1ca7e5f2e1e1baa2e1f479225&country=" + option + "&year=2019";
+      var queryURL = "https://calendarific.com/api/v2/holidays?api_key=567ba202f6afebf1ca7e5f2e1e1baa2e1f479225&country=" + option + "&year=2020";
       // var queryURL = "https://calendarific.com/api/v2/holidays?&api_key=baa9dc110aa712sd3a9fa2a3dwb6c01d4c875950dc32vs&country=US&year=2019"
 
-      // $(".content a" ).each(function( index, element ) 
       // Performing our AJAX GET request
       $.ajax({
         url: queryURL,
         method: "GET",
-
 
       }).then(function (data) {
         // console.log(data.response.holidays);
         $(".holidayList").empty();
         data.response.holidays.forEach(holiday => {
           console.log(holiday.date.iso);
-          var holidayDate = $("<div>").text(holiday.date.iso);
+          var holidayDate = $("<div class='holidayDate'>").text(holiday.date.iso);
           $(".holidayList").append(holidayDate);
-
+          
           console.log(holiday);
-          var holidayName = $("<div>").text(holiday.name);
+          var holidayName = $("<div class='holidayName'>").text(holiday.name);
           $(".holidayList").append(holidayName);
 
           console.log(holiday);
-          var holidayDescription = $("<div>").text(holiday.description);
+          var holidayDescription = $("<div class='holidayDescription'>").text(holiday.description);
           $(".holidayList").append(holidayDescription);
       
         });
@@ -133,11 +138,13 @@
         console.log(error);
       }
       )
+      
 
     })
+    ////////////////////
 
-
-
+    
+    
   </script>
 </body>
 

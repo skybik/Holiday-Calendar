@@ -2,6 +2,8 @@
     overflow: hidden;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    text-size-adjust: auto;
   }
 
 .navbar a {
@@ -26,8 +28,10 @@
     color: white;
     padding: 14px 16px;
     background-color: inherit;
-    font-family: inherit;
     margin: 0;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-size-adjust: auto;
   }
   
   .navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
@@ -39,17 +43,21 @@
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-size-adjust: auto;
   }
   
   .dropdown-content a {
     float: none;
-    color: black;
+    color: white;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-size-adjust: auto;
   }
   
   .dropdown-content a:hover {
@@ -60,3 +68,23 @@
     display: block;
   }
   
+.holidayDate {
+padding: 3px, 10px, 3px, 10px;
+margin: 10px;
+text-decoration-line: underline;
+    }
+  
+.holidayName {
+font-weight: bold;
+color: red;
+font-family: fantasy;
+padding: 3px, 10px, 3px, 10px;
+margin: 10px;
+  }
+
+.holidayDescription {
+border-bottom: 1px dashed #000;
+margin: 10px;
+
+
+    }
