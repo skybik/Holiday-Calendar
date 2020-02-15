@@ -16,11 +16,18 @@
   <h1>
     World Holiday Calendar
   </h1>
+
   <h2>Select any country from the dropdown menu to see its holidays!</h2>
+    <img id=countryFlag>
+
+
   <div class="navbar">
+
     <div class="dropdown">
       <select id="selectCountry">
         <option>Choose a country</option>
+
+
       </select>
     </div>
   </div>
@@ -32,63 +39,55 @@
   <script>
 
     var select = document.getElementById("selectCountry");
-    // var countryList = [
-    //   "Australia",
-    //   "China",
-    //   "France",
-    //   "Japan",
-    //   "Norway",
-    //   "Peru",
-    //   "South Korea",
-    //   "Ukraine",
-    //   "U.K.",
-    //   "U.S.A.",
-    // ];
-    
 
     var countryList = [
       {
         name: "Australia",
-        code: "au"        
+        code: "au",
       },
       {
         name: "China",
-        code: "cn"
+        code: "cn",
       },
       {
         name: "France",
-        code: "fr"
+        code: "fr",
       },
       {
         name: "Japan",
-        code: "jp"
+        code: "jp",
       },
       {
         name: "Norway",
-        code: "no"
+        code: "no",
       },
       {
         name: "Peru",
-        code: "pe"
+        code: "pe",
       },
       {
         name: "South Korea",
-        code: "kr"
+        code: "kr",
       },
       {
         name: "Ukraine",
-        code: "ua"
+        code: "ua",
       },
       {
         name: "United Kingdom",
-        code: "gb"
+        code: "gb",
       },
       {
         name: "U.S.A.",
-        code: "us"
+        code: "us",
       },
-
     ];
+
+    function changeImage(imageURL) {
+      var flagImage = document.getElementById("countryFlag");
+      flagImage.setAttribute("src", imageURL);
+    }
+
     for (var i = 0; i < countryList.length; i++) {
       var opt = countryList[i];
       var el = document.createElement("option");
@@ -97,19 +96,16 @@
       select.appendChild(el);
     }
 
-    
 
     $("#selectCountry").on("change", function () {
       console.log("whatever");
-      // document.getElementById("selectCountry").style.backgroundColor="green";
-      // document.getElementById("selectCountry").style.color="white";  
-      // document.getElementById("selectCountry").style.fontSize="large";
-        
-      
+
       var option = $(this).val();
 
       var queryURL = "https://calendarific.com/api/v2/holidays?api_key=567ba202f6afebf1ca7e5f2e1e1baa2e1f479225&country=" + option + "&year=2020";
-      // var queryURL = "https://calendarific.com/api/v2/holidays?&api_key=baa9dc110aa712sd3a9fa2a3dwb6c01d4c875950dc32vs&country=US&year=2019"
+
+      var imageURL = "https://www.countryflags.io/" + option + "/shiny/64.png"
+        changeImage(imageURL);
 
       // Performing our AJAX GET request
       $.ajax({
@@ -123,7 +119,7 @@
           console.log(holiday.date.iso);
           var holidayDate = $("<div class='holidayDate'>").text(holiday.date.iso);
           $(".holidayList").append(holidayDate);
-          
+
           console.log(holiday);
           var holidayName = $("<div class='holidayName'>").text(holiday.name);
           $(".holidayList").append(holidayName);
@@ -131,20 +127,19 @@
           console.log(holiday);
           var holidayDescription = $("<div class='holidayDescription'>").text(holiday.description);
           $(".holidayList").append(holidayDescription);
-      
+
         });
 
       }).catch(function (error) {
         console.log(error);
       }
       )
-      
+
+      $(".holidayList").empty();
 
     })
-    ////////////////////
 
-    
-    
+
   </script>
 </body>
 
