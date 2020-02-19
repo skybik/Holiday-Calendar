@@ -1,3 +1,16 @@
+h1, h2 {
+  text-align: center;
+}
+h1 {
+  color: red;
+}
+h2 {
+  color: orange;
+}
+body {
+  background-color: lightblue;
+}
+
 .navbar {
     overflow: hidden;
     background-color: #333;
